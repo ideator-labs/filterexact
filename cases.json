@@ -1,0 +1,31 @@
+{
+  "field": "seq",
+  "records": {
+    "msg_2p53":   9007199254740992,
+    "msg_2p53_1": 9007199254740993,
+    "snow_a":     1855000000000000001,
+    "snow_b":     1855000000000000002,
+    "ns_a":       1793000000000000000,
+    "ns_b":       1793000000000000001,
+    "i64_max":    9223372036854775807,
+    "i64_min":    -9223372036854775808,
+    "one":        1
+  },
+  "cases": [
+    {"id": "eq_2p53_1",  "op": "eq",  "value": 9007199254740993,    "expect": ["msg_2p53_1"]},
+    {"id": "eq_snow_b",  "op": "eq",  "value": 1855000000000000002, "expect": ["snow_b"]},
+    {"id": "eq_ns_a",    "op": "eq",  "value": 1793000000000000000, "expect": ["ns_a"]},
+    {"id": "eq_i64_max", "op": "eq",  "value": 9223372036854775807, "expect": ["i64_max"]},
+    {"id": "ne_snow_a",  "op": "ne",  "value": 1855000000000000001, "expect": ["i64_max", "i64_min", "msg_2p53", "msg_2p53_1", "ns_a", "ns_b", "one", "snow_b"]},
+    {"id": "in_snow_b",  "op": "in",  "value": [1855000000000000002], "expect": ["snow_b"]},
+    {"id": "gt_2p53",    "op": "gt",  "value": 9007199254740992,    "expect": ["i64_max", "msg_2p53_1", "ns_a", "ns_b", "snow_a", "snow_b"]},
+    {"id": "gte_snow_b", "op": "gte", "value": 1855000000000000002, "expect": ["i64_max", "snow_b"]},
+    {"id": "gt_ns_a",    "op": "gt",  "value": 1793000000000000000, "expect": ["i64_max", "ns_b", "snow_a", "snow_b"]},
+    {"id": "lt_ns_b",    "op": "lt",  "value": 1793000000000000001, "expect": ["i64_min", "msg_2p53", "msg_2p53_1", "ns_a", "one"]},
+    {"id": "lte_ns_a",   "op": "lte", "value": 1793000000000000000, "expect": ["i64_min", "msg_2p53", "msg_2p53_1", "ns_a", "one"]},
+    {"id": "lt_1e20",    "op": "lt",  "value": 1e20,  "expect": ["i64_max", "i64_min", "msg_2p53", "msg_2p53_1", "ns_a", "ns_b", "one", "snow_a", "snow_b"]},
+    {"id": "gt_m1e20",   "op": "gt",  "value": -1e20, "expect": ["i64_max", "i64_min", "msg_2p53", "msg_2p53_1", "ns_a", "ns_b", "one", "snow_a", "snow_b"]},
+    {"id": "gte_1e20",   "op": "gte", "value": 1e20,  "expect": []},
+    {"id": "lte_m1e20",  "op": "lte", "value": -1e20, "expect": []}
+  ]
+}
